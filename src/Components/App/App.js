@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchBar from '../SearchBar/SearchBar'
 import SearchResults from '../SearchResults/SearchResults'
 import PlayList from '../PlayList/PlayList'
+import './App.css'
 
 export class App extends Component {
   render() {
