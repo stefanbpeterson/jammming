@@ -5,10 +5,10 @@ import './PlayList.css'
 export class PlayList extends Component {
     render() {
         return (
-            <div>
+            <div className='PlayList'>
                 <input defaultValue={'New Playlist'}/>
-                <TrackList />
-                <button className="Playlist-save">SAVE TO SPOTIFY</button>
+                <TrackList tracks={this.props.playListTracks} />
+                <button className="PlayList-save">SAVE TO SPOTIFY</button>
             </div>
         )
     }

@@ -5,9 +5,9 @@ import './SearchResults.css'
 export class SearchResults extends Component {
     render() {
         return (
-            <div>
+            <div className='SearchResults'>
                 <h2>Results</h2>
-                <TrackList />
+                <TrackList tracks={this.props.searchResults} />
             </div>
         )
     }
