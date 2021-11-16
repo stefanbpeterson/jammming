@@ -17,6 +17,9 @@ export class App extends Component {
                        {name: 'Tsunade', artist: 'Muvment', album: 'Arkham', id: 6}]
     }
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
+    this.updatePlayListName = this.updatePlayListName.bind(this);
+    this.savePlayList = this.savePlayList.bind(this);
   }
 
   addTrack(track) {
@@ -25,6 +28,20 @@ export class App extends Component {
     }
     this.state.playListTracks.push(track);
     this.setState({ playListTracks: this.state.playListTracks });
+  }
+
+  removeTrack(track) {
+    let tracks = this.state.playListTracks;
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+    this.setState({ playListTracks: tracks });
+  }
+
+  updatePlayListName(name) {
+    this.setState({ playListName: name })
+  }
+
+  savePlayList() {
+    const trackURIs = this.state.playListTracks.map(track => track.uri)
   }
   
   render() {
@@ -35,7 +52,11 @@ export class App extends Component {
         <SearchBar />
         <div className="App-playlist">
           <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack} />
-          <PlayList playListName={this.state.playListName} playListTracks={this.state.playListTracks} />
+          <PlayList playListName={this.state.playListName} 
+                    playListTracks={this.state.playListTracks} 
+                    onRemove={this.removeTrack} 
+                    onNameChange={this.updatePlayListName}
+                    onSave={this.savePlayList} />
         </div>
       </div>
     </div>
