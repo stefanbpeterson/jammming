@@ -58,7 +58,7 @@ export class App extends Component {
         <div className="App-playlist">
           <SearchResults searchResults={this.state.searchResults}
                          onAdd={this.addTrack} 
-                         search={this.search} />
+                         onSearch={this.search} />
           <PlayList playListName={this.state.playListName} 
                     playListTracks={this.state.playListTracks} 
                     onRemove={this.removeTrack} 
